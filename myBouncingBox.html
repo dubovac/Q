@@ -1,0 +1,25 @@
+<html style="background-color: black">
+		<div id="my_bouncing_box" style="background-color: blue; border-radius: 3px; position: absolute; left: 0px; top: 0px; min-width: 100px; min-height: 100px; text-align: center; font-weight: bold; color: #999;">Not loaded</div>
+	<script> 
+		let x = 0; 
+                let y = 0; 
+                let dx = -1;
+                let dy = -1;
+		let box = document.getElementById("my_bouncing_box");
+                let w = box.offsetWidth;
+                let h = box.offsetHeight;
+
+                let redBox = setInterval(() => {
+                        box.position = "absolute";
+                        box.style.left = x;
+                        box.style.top = y;
+
+                        if (x <= 0 || x >= window.innerWidth - w)  
+                                dx = -dx;
+                        if (y <= 0 || y >= window.innerHeight - h)
+                                dy = -dy;
+                        x += dx;
+                        y += dy;
+                }, 300);
+	</script>
+</html>
